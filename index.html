@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SimpleTodo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+<body>
+     <div ng-app="TodoApp" ng-controller="TodoCtrl">
+          <h1>Total Todos : {{getTotalTodos()}}</h1>  
+            <ul class="list-unstyled">
+                 <li ng-repeat="todo in todos">
+                    <input type="checkbox" ng-model="todo.done">
+                     <span class="done-{{todo.done}}">{{todo.text}}</span>
+                 </li>
+                          
+            </ul>
+
+            <form class="form-horizontal">
+                <input type="text" ng-model="formTodoText" ng-model-instant>
+                <button class="btn" ng-click="addTodo()"><i class="icon-plus"></i>Add</button>
+            </form>
+        
+            <button class="btn-large" ng-click="clearCompleted()"><i class="icon-trash"></i>Clear Completed</button>
+     
+     </div >
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+     <script src="Todo.js"></script>
+ </head>
+</body>
+</html>
